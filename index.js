@@ -73,8 +73,8 @@ app.post('/users/add', (req, res) => {
 
 // To test with postman, use raw JSON body not form-data
 app.put('/users/update/:id', (req, res) => {
-    const newData = req.body
     const userId = Number(req.params.id)
+    const newData = req.body
     const userIndex = userList.findIndex(u => u.id === userId)
     if (userIndex === -1) {
         return res.status(404).json({ error: 'User not found' })
