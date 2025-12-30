@@ -86,6 +86,20 @@ app.put('/users/update/:id', (req, res) => {
     })
 })
 
+app.delete('/users/delete/:id', (req, res) => {
+    const userId = Number(req.params.id)
+    const userIndex = userList.findIndex(u => u.id === userId)
+    if (userIndex === -1) {
+        return res.status(404).json({ error: 'User not found' })
+    }
+    const deletedUser = userList.splice(userIndex, 1)
+    res.status(200).json({
+        message: 'User deleted successfully',
+        user: deletedUser[0]
+    })
+
+})
+
 app.listen(port, () => {
     console.log(`Backend server is running on port ${port}`)
     console.log("http://localhost:" + port)
