@@ -1,0 +1,17 @@
+{
+  "name": "beginner_nodejs_expressjs",
+  "version": "1.0.0",
+  "description": "learning about node js and express js",
+  "license": "MIT",
+  "author": "eisBlume0901",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
