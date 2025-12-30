@@ -19,4 +19,8 @@ npx gitignore node - creates a .gitignore file with Node.js specific ignores
 git init - initializes a new git repository in the current directory
 
 
+To autosave code changes, install and run:
+
+npm install --save-dev nodemon - installs nodemon as a development dependency
+
 Always run npm start to start the server after making code changes to ensure the latest code is executed.

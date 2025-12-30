@@ -42,6 +42,19 @@ app.get('/users', (req, res) => {
     res.json(userList)
 })
 
+app.post('/users/add', (req, res) => {
+    const { name, age, country } = req.query
+    if (!name || !age || !country) {
+        return res.status(400).json({ error: 'Missing required fields: name, age, country' })
+    }
+    const newUser = { name, age: Number(age), country }
+    userList.push(newUser)
+    res.status(201).json({
+        message: 'User added successfully',
+        user: newUser
+    })
+})
+
 app.listen(port, () => {
     console.log(`Backend server is running on port ${port}`)
     console.log("http://localhost:" + port)
