@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+app.use(express.json()) // Middleware to parse JSON bodies
 
 const port = process.env.PORT
 
@@ -47,7 +48,7 @@ app.post('/users/add', (req, res) => {
     if (!name || !age || !country) {
         return res.status(400).json({ error: 'Missing required fields: name, age, country' })
     }
-    const newUser = { name, age: Number(age), country }
+    const newUser = { name: String(age), age: Number(age), country: String(country) }
     userList.push(newUser)
     res.status(201).json({
         message: 'User added successfully',
